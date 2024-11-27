@@ -1,13 +1,44 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>WebClient</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>WebClient</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      id="favicon"
+      rel="icon"
+      type="image/x-icon"
+      href="assets/img/icon/favicon_light.png"
+    />
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+  <script>
+    // Função para alterar o favicon com base no tema
+    function updateFavicon() {
+      const favicon = document.getElementById("favicon");
+      const darkModeMediaQuery = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      );
+
+      // Verifica o tema e altera o favicon
+      if (darkModeMediaQuery.matches) {
+        // Tema escuro
+        favicon.href = "assets/img/icon/favicon_light.png";
+      } else {
+        // Tema claro
+        favicon.href = "assets/img/icon/favicon_dark.png";
+      }
+    }
+
+    // Atualiza o favicon ao carregar a página
+    updateFavicon();
+
+    // Atualiza o favicon quando o usuário alterna o tema
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", updateFavicon);
+  </script>
 </html>

@@ -4,12 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Series;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Artists extends Model
+class Artist extends Model
 {
     protected $fillable = [
-        'name',
-        'biography'
+        'full_name',
+        'artist_name',
+        'biography',
+        'email'
     ];
 
     /**

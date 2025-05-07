@@ -35,7 +35,7 @@ class ArtistController extends Controller
         $artist = Artist::create($request->validated());
 
         return response()->json([
-            'message' => "Artista $artist->artist_name criado com sucesso!",
+            'message' => trans('messages.success.create', ['value' => strtoupper($artist->artist_name)]),
             'artist' => new ArtistResource($artist)
         ], 201);
     }
@@ -63,7 +63,7 @@ class ArtistController extends Controller
     {
         $artist->update($request->validated());
         return response()->json([
-            'message' => "Artista $artist->artist_name atualizado com sucesso!",
+            'message' => trans('messages.success.update', ['value' => strtoupper($artist->artist_name)]),
             'artist' => $artist
         ]);
 
@@ -76,7 +76,7 @@ class ArtistController extends Controller
     {
         $artist->delete();
         return response()->json([
-            'message' => "Artista $artist->artist_name foi deletado com sucesso",
+            'message' => trans('messages.success.delete', ['value' => strtoupper($artist->artist_name)]),
         ]);
     }
 }

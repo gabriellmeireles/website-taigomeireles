@@ -1,9 +1,9 @@
 <?php
     return [
         'success' => [
-            'create' => ':value registrado!',
-            'update' => ':value atualizado!',
-            'delete' => ':value deletado!',
+            'create' => ':value - Dados registrado!',
+            'update' => ':value - Dados atualizado!',
+            'delete' => ':value - Dados deletado!',
         ],
         'error' => [
             'not_found' => 'Registro não encontrado.',

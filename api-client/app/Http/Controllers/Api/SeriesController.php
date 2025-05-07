@@ -35,7 +35,7 @@ class SeriesController extends Controller
         $series = Series::create($request->validated());
 
         return response()->json([
-            'message' => "Series $series->title criada com sucesso!",
+            'message' => trans('messages.success.create', ['value' => strtoupper($series->title)]),
             'series' => new SeriesResource($series)
         ], 201);
     }
@@ -63,7 +63,7 @@ class SeriesController extends Controller
     {
         $series->update($request->validated());
         return response()->json([
-            'message' => "Serie $series->title atualizada com sucesso!",
+            'message' => trans('messages.success.update', ['value' => strtoupper($series->title)]),
             'series' => $series
         ]);
     }
@@ -75,7 +75,7 @@ class SeriesController extends Controller
     {
         $series->delete();
         return response()->json([
-            'message' => "Serie $series->title deletada com sucesso",
+            'message' => trans('messages.success.delete', ['value' => strtoupper($series->title)]),
         ]);
     }
 }

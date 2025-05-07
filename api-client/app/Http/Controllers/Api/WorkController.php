@@ -35,9 +35,10 @@ class WorkController extends Controller
         $work = Work::create($request->validated());
 
         return response()->json([
-            'message' => "Obra $work->title adiciona com sucesso!",
+            'message' => trans('messages.success.create', ['value' => strtoupper($work->title)]),
             'work' => $work
         ],201);
+        
 
     }
 
@@ -65,7 +66,7 @@ class WorkController extends Controller
         $work->update($request->validated());
 
         return response()->json([
-            'message' => "Obra $work->title atualizada com sucesso!",
+            'message' => trans('messages.success.update', ['value' => strtoupper($work->title)]),
             'work' => $work
         ]);
     }
@@ -77,7 +78,7 @@ class WorkController extends Controller
     {
         $work->delete();
         return response()->json([
-            'message' => "Obra $work->title deletada com sucesso!",
+           'message' => trans('messages.success.delete', ['value' => strtoupper($work->title)]),
         ]);
     }
 }

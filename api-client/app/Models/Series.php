@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Artist;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Series extends Model
 {
@@ -23,5 +24,15 @@ class Series extends Model
    public function artist(): BelongsTo
    {
        return $this->belongsTo(Artist::class);
+   }
+
+   /**
+    * Get all of the works for the Series
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+   public function works(): HasMany
+   {
+       return $this->hasMany(Work::class);
    }
 }
